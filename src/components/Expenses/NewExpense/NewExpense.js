@@ -6,7 +6,6 @@ export const NewExpense = (props) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const visibleHandler = () => {
-    console.log(isVisible);
     setIsVisible(!isVisible);
   };
 
