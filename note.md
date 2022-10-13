@@ -20,5 +20,18 @@
   다른 DOM 요소에 접근하여 그 요소들로 작업할 수 있게 해주는 것
   감이 안잡히네 ㅇㅅaㅇ...
   -> 제어 컴포넌트와 제어되지 않은 컴포넌트
+
   - ref로 값에 접근하는 경우 제어되지 않은 컴포넌트가 된다.
     -> 왜? 이것들은 내부 state이기 때문에 react에 의해 관리(제어)되지 않는다
+
+- Effects
+  - Side Effect
+- Reducer
+
+  - useReducer 은 state 관리를 도와준다
+  - 강력한 state 관리(특정 상황에서)가 필요할 때 useState 대신 사용할 수 있다.
+  - 사용하기 복잡하기 때문에 대부분의 경우에는 useState를 사용하게 더 좋다.
+
+- Context
+  - Context를 사용하기 위해선 공급(Provide) 과 소비(Consume)가 이루어져야한다.
+    - 여기서 말하는 공급은 Context로 JSX 코드로 감싼다는것을 의미한다.

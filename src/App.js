@@ -1,24 +1,22 @@
-import React, { useState } from "react";
-import { AddUser } from "./components/Register/User/AddUser";
-import { UserList } from "./components/Register/User/UserList";
+import React, { useContext, useId } from "react";
+import { AuthConetext } from "./context/authContext";
+import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
+import MainHeader from "./components/MainHeader/MainHeader";
 
-const App = () => {
-  const [userList, setUserList] = useState([
-    { id: Math.random(), username: "Tom", age: 31 },
-    { id: Math.random(), username: "Mac", age: 1 },
-  ]);
-
-  const addUserListHandler = (newUser) => {
-    setUserList((prevUserList) => {
-      return [...prevUserList, newUser];
-    });
-  };
+function App() {
+  const { isLoggedIn, onLogin, onLogout } = useContext(AuthConetext);
+  const id = useId();
+  console.log("useId : ", id);
   return (
-    <div>
-      <AddUser users={userList} renderForNewUser={addUserListHandler} />
-      <UserList users={userList} />
-    </div>
+    <React.Fragment>
+      <MainHeader />
+      <main>
+        {!isLoggedIn && <Login onLogin={onLogin} />}
+        {isLoggedIn && <Home onLogout={onLogout} />}
+      </main>
+    </React.Fragment>
   );
-};
+}
 
 export default App;
